@@ -10,5 +10,11 @@ def print_all():
             temp = list(map(lambda x: ['0','1'][j]+x,res))
             temp2.extend(temp)
     print(res)
-    print("Num of binary combiations are :",len(res))
+    print("Num of binary combinations are :",len(res))
+    
 print_all()
+
+"""
+    appends the 0 first and 1 next to all the elements in the array
+    [0,1] => [00,10,01,11] => [000,100,010,110, 001,101,011,111] => .....
+"""

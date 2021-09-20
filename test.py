@@ -1,38 +1,32 @@
-arr1 = [1,2,1,1,1,1,1,1]
-arr2 = [1,1]
-count =0
-i=0
-def func1(arr):
-    i=0
-    count=0
-    while i<len(arr)-1:
-        fac = arr[i]
-        if i<len(arr)-1:
-            j=i+1
-        else: break
-        while j<len(arr):
-            if fac==arr[j]:
-                count=count+1
-                i=j+1
-                break
-            else:
-                j=j+1
+import time
+memo = []
 
-    return count
+def time_it(func):
+    def inner(*args,**kwargs):
+        st = time.time_ns()
+        func(*args,**kwargs)
+        et = time.time_ns()
+        print("This took : ",et-st,"ns")
+    return inner
 
-print(func1(arr2))
 
-def func2():
-    pass
+def fibRec(x,memo):
+    # print(memo)
+    if(memo[x] == -1):
+        if(x==0 or x==1):
+            memo[x] = x
+            return x
+        else:
+            res = fib(x-1)+fib(x-2)
+        memo[x] = res
+        return res
+    else:
+        return memo[x]
 
-def check(num):
-    count=0;
-    temp = num
-    while num>1:
-        print(num)
-        if num%2==1: count = count+1
-        num = num//2
-    if num/2 ==1: count+1
-    return temp+count
 
-print(check(5))
+def fib(x):
+    memo = [-1 for i in range(x+1)]
+    return fibRec(x,memo)
+
+n = int(input("Enter the number : "))
+print(fib(10))
