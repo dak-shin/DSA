@@ -1,0 +1,4 @@
+1. While performing DFS if path needs to be tracked use a bool visited array.
+2. If the result comprises of set of smaller results then use two arrays in backtracking, one to generate the
+   smaller result, other larger array to add the smaller results into.
+3. 

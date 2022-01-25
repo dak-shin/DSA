@@ -12,7 +12,8 @@ vector<int> djikstra(int graph[V][V],int src)
 	for (int count = 0; count < V-1 ; count++)
 	{
 		int u = -1;
-
+		// Finding the edge with minimum distance
+		
 		for(int i=0;i<V;i++)
 		    if(!fin[i]&&(u==-1||dist[i]<dist[u]))
 		        u=i;
